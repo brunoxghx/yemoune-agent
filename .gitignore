@@ -1,0 +1,50 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# Build artifacts
+dist/
+build/
+bin/
+yemoune-agent
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Packages
+*.rpm
+*.deb
+*.tar.gz
+*.zip
+
+# Logs
+*.log
+
+# Config (keep examples only)
+config.yaml
+agent.env
+!config.yaml.example
+!agent.env.example

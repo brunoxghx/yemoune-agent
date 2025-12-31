@@ -1,0 +1,22 @@
+FROM golang:1.22-alpine
+
+# Install build dependencies
+RUN apk add --no-cache \
+    git \
+    make \
+    bash
+
+# Set working directory
+WORKDIR /build
+
+# Environment variables for Go cross-compilation
+ENV CGO_ENABLED=0
+
+# Copy source code
+COPY . .
+
+# Tidy and download dependencies
+RUN go mod tidy && go mod download
+
+# Build script will be called from outside
+CMD ["/bin/bash"]

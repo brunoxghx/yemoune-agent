@@ -1,0 +1,59 @@
+agent:
+  # Agent ID (auto-populated with hostname if not specified)
+  id: ""
+
+  # Yemoune server URL (required)
+  server_url: "http://localhost:8080"
+
+  # API token for authentication (use environment variable YEMOUNE_API_TOKEN instead)
+  api_token: ""
+
+scanner:
+  # Number of parallel workers for scanning
+  workers: 10
+
+  # Maximum directory depth (0 = unlimited)
+  max_depth: 0
+
+  # Maximum uncompressed batch size in MB (default 1GB)
+  batch_size_mb: 1024
+
+  # Paths to exclude from scanning (glob patterns)
+  exclude_paths:
+    - "/proc/*"
+    - "/sys/*"
+    - "/dev/*"
+    - "*.tmp"
+    - "/tmp/*"
+
+  # Minimum file size in bytes (0 = no limit)
+  min_file_size: 0
+
+  # Maximum file size in bytes (0 = no limit)
+  max_file_size: 0
+
+reporter:
+  # Compression algorithm (zstd)
+  compression: "zstd"
+
+  # Compression level (1-9, default 3 for balanced speed/ratio)
+  compression_level: 3
+
+  # HTTP timeout in seconds
+  timeout_seconds: 60
+
+  # Maximum number of retries on failure
+  max_retries: 3
+
+  # Delay between retries in seconds (exponential backoff)
+  retry_delay_seconds: 5
+
+logging:
+  # Log level: debug, info, warn, error
+  level: "info"
+
+  # Log format: json or text
+  format: "json"
+
+  # Log output: stdout, stderr, or file path
+  output: "stdout"

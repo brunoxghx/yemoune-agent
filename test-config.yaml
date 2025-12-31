@@ -1,0 +1,27 @@
+agent:
+  id: "test-agent-local"
+  server_url: "https://yemoune.mexsb.quebec"
+  api_token: ""
+
+scanner:
+  workers: 2
+  max_depth: 2
+  batch_size_mb: 10
+  exclude_paths:
+    - "/proc/*"
+    - "/sys/*"
+    - "/dev/*"
+  min_file_size: 0
+  max_file_size: 0
+
+reporter:
+  compression: "zstd"
+  compression_level: 3
+  timeout_seconds: 30
+  max_retries: 2
+  retry_delay_seconds: 3
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"

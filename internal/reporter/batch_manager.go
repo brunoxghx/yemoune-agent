@@ -59,7 +59,8 @@ func (bm *BatchManager) AddFile(ctx context.Context, file *models.FileMetadata) 
 	fileSize := int64(len(fileJSON))
 
 	// Check if adding this file would exceed batch size
-	maxBatchSize := int64(bm.batchSizeMB) * 1024 * 1024
+	// Reserve 2MB for JSON payload overhead (wrapper structure, formatting, etc.)
+	maxBatchSize := int64(bm.batchSizeMB)*1024*1024 - 2*1024*1024
 	if bm.currentSize+fileSize > maxBatchSize && len(bm.currentBatch) > 0 {
 		// Send current batch
 		if err := bm.sendBatch(ctx, false); err != nil {
